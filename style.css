@@ -96,7 +96,7 @@ label[for="new-task-input"] {
 #new-task-input {
   width: 318px;
 }
-p > button:hover {
+section > button:hover {
   color: #0fc57c;
 }
 
