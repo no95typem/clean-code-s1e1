@@ -18,36 +18,40 @@ var completedTasksHolder=document.getElementById("completed-tasks-list");//compl
 var createNewTaskElement=function(taskString){
 
     var listItem=document.createElement("li");
+    listItem.classList.add("tasks-list-item");
 
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
+    checkBox.type="checkbox";
+    checkBox.classList.add("input-checkbox");
+    
     //label
     var label=document.createElement("label");//label
+    label.classList.add("list-item-label");
+    label.classList.add("task");
+    label.innerText=taskString;
+
     //input (text)
     var editInput=document.createElement("input");//text
+    editInput.type="text";
+    editInput.classList.add("input-text");
+    editInput.classList.add("task");
+
     //button.edit
     var editButton=document.createElement("button");//edit button
-
+    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
+    editButton.classList.add("btn");
+    editButton.classList.add("btn-edit");
+    
     //button.delete
     var deleteButton=document.createElement("button");//delete button
+    deleteButton.classList.add("btn");
+    deleteButton.classList.add("btn-delete");
     var deleteButtonImg=document.createElement("img");//delete button image
-
-    label.innerText=taskString;
-    label.className='task';
-
-    //Each elements, needs appending
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
-
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="btn-edit";
-
-    deleteButton.className="btn-delete";
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.alt="remove todo";
+    deleteButtonImg.classList.add("btn-delete-img");
     deleteButton.appendChild(deleteButtonImg);
-
 
     //and appending.
     listItem.appendChild(checkBox);
@@ -90,7 +94,7 @@ var editTask=function(){
     //If class of the parent is .edit-mode
     if(containsClass){
 
-        //switch to .edit-mode
+        //switch to no edit mode
         //label becomes the inputs value.
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
@@ -99,7 +103,7 @@ var editTask=function(){
         editBtn.innerText="Save";
     }
 
-    //toggle .edit-mode on the parent.
+    //toggle .tasks-list__item_edit-mode on the parent.
     listItem.classList.toggle("edit-mode");
 };
 
