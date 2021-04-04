@@ -10,10 +10,10 @@
   display: block;
   text-align: right;
 }
-.header .img {
+.header__img {
   width: 100%;
 }
-.header .link-more-info {
+.header__link {
   font-family: fantasy, cursive;
 }
 
@@ -29,22 +29,18 @@
   width: 500px;
   margin: 0 auto 0;
 }
-.task {
-  width: 56%;
-  display: inline-block;
-  flex-grow: 1;
-}
-.add-task-row {
+
+.add-task-block__row {
   display: flex;
 }
 .tasks-list {
   margin: 0;
   padding: 0px;
 }
-.tasks-list-item {
+.tasks-list__item {
   list-style: none;
 }
-.todo-body-list-header {
+.todo-body__list-header {
   list-style: none;
 }
 input, /* Это явно намеренный сброс стилей, здесь можно оставить теги */
@@ -64,7 +60,7 @@ button{
   color: #3a3a3a;
 }
 /* Heading */
-.todo-body-list-header {
+.todo-body__list-header {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -73,7 +69,7 @@ button{
   margin: 0;
   text-transform: uppercase;
 }
-.add-task-label {
+.add-task-block__label {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -82,7 +78,8 @@ button{
   margin: 0;
   text-transform: uppercase;
 }
-.input-text {
+.add-task-block__input, 
+.tasks-list-item__input-text {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
@@ -97,19 +94,22 @@ button{
   font-family: Lato, sans-serif;
   color: #888;
 }
-.input-text:focus {
+.tasks-list-item__input-text:focus {
   color: #333;
 }
 
 /* New Task */
-.add-task-label {
+.add-task-block__label {
   display: block;
   margin: 0 0 20px;
 }
-#new-task-input {
+.add-task-block__input {
+  width: 56%; /* Оставил, так как в оригинале это значение наследовалось от task */
+  display: inline-block;
+  flex-grow: 1;
   width: 318px;
 }
-.section .btn:hover {
+.add-task-block__add-button:hover {
   color: #0fc57c;
 }
 
@@ -127,46 +127,49 @@ button{
   vertical-align: middle;
 }
 
-.tasks-list-item > .input-checkbox {
+.tasks-list-item__checkbox {
   margin: 0 10px;
 }
-.tasks-list-item > .list-item-label {
+.tasks-list-item__label {
+  width: 56%; /* from .task in original repo */
+  display: inline-block; /* from .task in original repo */
+  flex-grow: 1; /* from .task in original repo */
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
-.tasks-list-item > .input-text {
+.tasks-list-item__input-text {
   width: 226px;
 }
-.tasks-list-item > .btn-delete:hover {
+.tasks-list-item__btn-delete:hover {
   color: #cf2323;
 }
-.btn-delete .btn-delete-img {
+.tasks-list-item__btn-delete-img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
-.btn-delete .btn-delete-img:hover {
+.tasks-list-item__btn-delete-img:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-#completed-tasks-list .list-item-label {
+#completed-tasks-list .tasks-list-item__label {
   text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
-.tasks-list .tasks-list-item .input-text {
+.tasks-list-item__input-text {
   display: none;
 }
 
-.tasks-list .tasks-list-item.edit-mode .input-text {
+.tasks-list-item_edit-mode .tasks-list-item__input-text {
   display: inline-block;
   width: 224px;
 }
 
-.edit-mode .list-item-label {
+.tasks-list-item_edit-mode .tasks-list-item__label {
   display: none;
 }
