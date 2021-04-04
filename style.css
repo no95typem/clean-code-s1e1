@@ -1,8 +1,15 @@
 /* Basic Style */
+body {
+  margin: 0px;
+}
+
 .wrapper {
+  box-sizing: border-box;
   background-color: #f8f8f8;
   color: #333;
   font-family: Lato, sans-serif;
+  padding: 8px;
+  height: 100vh;
 }
 .header {
   width: 500px;
@@ -12,8 +19,10 @@
 }
 .header__img {
   width: 100%;
+  display: block;
 }
 .header__link {
+  display: block;
   font-family: fantasy, cursive;
 }
 
@@ -55,6 +64,7 @@ button{
   width: 60px;
   font-family: Lato, sans-serif;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .btn:hover {
   color: #3a3a3a;
@@ -65,7 +75,7 @@ button{
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid #333;
-  padding: 30px 0 10px;
+  padding: 46px 0 10px;
   margin: 0;
   text-transform: uppercase;
 }
@@ -74,12 +84,16 @@ button{
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid #333;
-  padding: 30px 0 10px;
+  padding: 46px 0 10px; /* 30 -> 43 pixelperfect adjustement */
   margin: 0;
   text-transform: uppercase;
 }
+.todo-body__list-header_completed {
+  padding: 30px 0 10px;
+}
 .add-task-block__input, 
 .tasks-list-item__input-text {
+  box-sizing: border-box;
   width: 56%;
   display: inline-block;
   flex-grow: 1;
@@ -115,6 +129,7 @@ button{
 
 /* Task list */
 .tasks-list-item {
+  box-sizing: border-box;
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -147,6 +162,7 @@ button{
 }
 .tasks-list-item__btn-delete-img {
   height: 2em;
+  margin: -0.5px auto -2.5px auto;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
